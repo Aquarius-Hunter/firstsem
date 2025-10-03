@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>First Semester Syllabus – Exam Preparation</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+*{font-family:'Inter',sans-serif}
+.gradient-bg{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%)}
+.card-hover{transition:all .3s ease;border-left:4px solid transparent}
+.card-hover:hover{transform:translateX(5px);border-left-color:#667eea;box-shadow:0 10px 30px rgba(0,0,0,.1)}
+.topic-item{transition:all .2s ease;cursor:pointer}
+.topic-item:hover{background:#f3f4f6;padding-left:1rem}
+.completed{background:#dcfce7!important;text-decoration:line-through;opacity:.7}
+.countdown-timer{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+.nav-link{position:relative;transition:color .3s}
+.nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:#667eea;transition:width .3s}
+.nav-link:hover::after{width:100%}
+.scroll-smooth{scroll-behavior:smooth}
+.progress-bar{transition:width .5s}
+.pulse-animation{animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
+.fade-in{animation:fadeIn .5s ease-in}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.sticky-nav{backdrop-filter:blur(10px);background-color:rgba(255,255,255,.95)}
+.subject-card{background:linear-gradient(135deg,#fff 0%,#f8fafc 100%)}
+.lab-card{background:linear-gradient(135deg,#f0f9ff 0%,#e0f2fe 100%)}
+.study-card{background:linear-gradient(135deg,#fef3c7 0%,#fde68a 100%)}
+.resource-card{background:linear-gradient(135deg,#f3e8ff 0%,#e9d5ff 100%)}
+.edit-mode{border:2px dashed #667eea;background:#f9fafb}
+.editable{position:relative}
+.editable:hover{background:#f3f4f6;border-radius:4px}
+.edit-controls{position:fixed;bottom:20px;right:20px;z-index:1000;display:flex;gap:10px}
+.edit-button{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.3s;box-shadow:0 4px 12px rgba(0,0,0,.15);backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);background:rgba(255,255,255,.75);border:1px solid rgba(209,213,219,.3)}
+.edit-button:hover{transform:scale(1.1)}
+.achievement-popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);background:#fff;border-radius:20px;padding:2rem;box-shadow:0 20px 60px rgba(0,0,0,.3);z-index:2000;transition:transform .3s}
+.achievement-popup.show{transform:translate(-50%,-50%) scale(1)}
+.confetti{position:fixed;width:10px;height:10px;background:#667eea;animation:confetti-fall 3s linear}
+@keyframes confetti-fall{to{transform:translateY(100vh) rotate(360deg);opacity:0}}
+.glass-effect{backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);background:rgba(255,255,255,.75);border:1px solid rgba(209,213,219,.3)}
+.add-button,.delete-button,.drag-handle{position:absolute;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s;backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);background:rgba(255,255,255,.75);border:1px solid rgba(209,213,219,.3)}
+.add-button{top:10px;right:10px;background:#667eea;color:#fff}
+.add-button:hover{background:#764ba2;transform:scale(1.1)}
+.delete-button{top:10px;right:50px;background:#ef4444;color:#fff}
+.delete-button:hover{background:#dc2626;transform:scale(1.1)}
+.drag-handle{top:10px;left:10px;background:#10b981;color:#fff}
+.drag-handle:hover{background:#059669;transform:scale(1.1)}
+.draggable{position:relative;margin-bottom:20px}
+/* Hide edit controls by default */
+.edit-controls .add-button,
+.edit-controls .delete-button,
+.edit-controls .drag-handle,
+.draggable .add-button,
+.draggable .delete-button,
+.draggable .drag-handle {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+/* Show edit controls only in edit mode */
+.edit-mode .edit-controls .add-button,
+.edit-mode .edit-controls .delete-button,
+.edit-mode .edit-controls .drag-handle,
+.edit-mode .draggable .add-button,
+.edit-mode .draggable .delete-button,
+.edit-mode .draggable .drag-handle {
+    opacity: 1;
+    pointer-events: auto;
+}
+</style>
+</head>
+<body class="bg-gray-50 scroll-smooth">
+
+<!-- ==================== NAVIGATION ==================== -->
+<nav class="fixed top-0 w-full sticky-nav shadow-lg z-50">
+<div class="container mx-auto px-4">
+<div class="flex justify-between items-center py-4">
+<div class="flex items-center space-x-3">
+<i class="fas fa-graduation-cap text-3xl text-purple-600"></i>
+<div>
+<span class="text-xl font-bold text-gray-800">AI&ML Syllabus Hub</span>
+<div class="text-xs text-gray-600">Kashi Institute of Technology, Purvanchal Ka No.1 College</div>
+</div>
+</div>
+<div class="hidden md:flex space-x-8">
+<a href="#home" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Home</a>
+<a href="#subjects" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Subjects</a>
+<a href="#labs" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Labs</a>
+<a href="#study-plan" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Study Plan</a>
+<a href="#resources" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Resources</a>
+<a href="#progress" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Progress</a>
+</div>
+<button id="mobileMenuBtn" class="md:hidden">
+<i class="fas fa-bars text-2xl text-gray-700"></i>
+</button>
+</div>
+</div>
+<div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+<div class="px-4 py-3 space-y-2">
+<a href="#home" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Home</a>
+<a href="#subjects" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Subjects</a>
+<a href="#labs" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Labs</a>
+<a href="#study-plan" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Study Plan</a>
+<a href="#resources" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Resources</a>
+<a href="#progress" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Progress</a>
+</div>
+</div>
+</nav>
+
+<!-- ==================== HERO + COUNTDOWN ==================== -->
+<section id="home" class="gradient-bg text-white pt-24 pb-20">
+<div class="container mx-auto px-4">
+<div class="max-w-5xl mx-auto text-center">
+<div class="mb-6">
+<span class="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full text-sm font-bold pulse-animation">
+<i class="fas fa-clock mr-2"></i>EXAMS PREPARATION MODE
+</span>
+</div>
+<h1 class="text-4xl md:text-6xl font-bold mb-6 fade-in">
+First Semester BTech AI&ML
+</h1>
+<p class="text-xl md:text-2xl mb-8 opacity-90">
+Complete Exam Preparation Guide for Kashi Institute of Technology
+</p>
+
+<!-- Countdown -->
+<div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 mb-8 border border-white/20">
+<h2 class="text-3xl font-bold mb-6">Exams Start In:</h2>
+<div id="countdown"
+class="flex justify-center space-x-6 text-4xl font-bold countdown-timer">
+<div class="text-center"><div id="days"
+class="bg-white/20 rounded-xl p-4 min-w-[80px] backdrop-blur">00</div><div class="text-sm mt-2 font-medium">Days</div></div>
+<div class="text-center"><div id="hours"
+class="bg-white/20 rounded-xl p-4 min-w-[80px] backdrop-blur">00</div><div class="text-sm mt-2 font-medium">Hours</div></div>
+<div class="text-center"><div id="minutes"
+class="bg-white/20 rounded-xl p-4 min-w-[80px] backdrop-blur">00</div><div class="text-sm mt-2 font-medium">Minutes</div></div>
+<div class="text-center"><div id="seconds"
+class="bg-white/20 rounded-xl p-4 min-w-[80px] backdrop-blur">00</div><div class="text-sm mt-2 font-medium">Seconds</div></div>
+</div>
+<div id="urgencyMessage"
+class="mt-4 text-lg font-semibold text-center"></div>
+</div>
+
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button onclick="scrollToSection('subjects')"
+class="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition transform hover:scale-105">
+<i class="fas fa-book-open mr-2"></i>View Syllabus
+</button>
+<button onclick="scrollToSection('study-plan')"
+class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition transform hover:scale-105">
+<i class="fas fa-calendar-alt mr-2"></i>Study Plan
+</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ==================== QUICK STATS ==================== -->
+<section class="py-12 bg-white shadow-sm">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="text-center group">
+<div class="text-3xl md:text-4xl font-bold text-purple-600 mb-2 group-hover:scale-110 transition">5</div>
+<div class="text-gray-600 font-medium">Theory Subjects</div>
+</div>
+<div class="text-center group">
+<div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2 group-hover:scale-110 transition">4</div>
+<div class="text-gray-600 font-medium">Lab Courses</div>
+</div>
+<div class="text-center group">
+<div class="text-3xl md:text-4xl font-bold text-green-600 mb-2 group-hover:scale-110 transition">9+</div>
+<div class="text-gray-600 font-medium">Target CGPA</div>
+</div>
+<div class="text-center group">
+<div class="text-3xl md:text-4xl font-bold text-orange-600 mb-2 group-hover:scale-110 transition">200+</div>
+<div class="text-gray-600 font-medium">Topics Covered</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ==================== SUBJECTS ==================== -->
+<section id="subjects" class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
+Complete Syllabus Breakdown
+</h2>
+
+<div class="space-y-8 max-w-6xl mx-auto">
+
+<!-- ---------- ENGINEERING PHYSICS ---------- -->
+<div class="card-hover subject-card rounded-xl shadow-lg p-6">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center">
+<i class="fas fa-atom text-4xl text-purple-600 mr-4"></i>
+<div>
+<h3 class="text-2xl font-bold text-gray-800">Engineering Physics</h3>
+<p class="text-sm text-gray-600">KAS101T / BAS101</p>
+</div>
+</div>
+<span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-bold">4 Credits</span>
+</div>
+
+<!-- container that will be sortable -->
+<div id="physicsUnits" class="space-y-6"></div>
+
+<!-- add new unit button -->
+<div class="mt-6 flex justify-center">
+<button class="add-button" onclick="addUnit('physicsUnits','Physics Unit')">
+<i class="fas fa-plus"></i>
+</button>
+</div>
+</div>
+
+<!-- ---------- ENGINEERING MATHEMATICS I ---------- -->
+<div class="card-hover subject-card rounded-xl shadow-lg p-6">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center">
+<i class="fas fa-calculator text-4xl text-purple-600 mr-4"></i>
+<div>
+<h3 class="text-2xl font-bold text-gray-800">Engineering Mathematics‑I</h3>
+<p class="text-sm text-gray-600">KAS102T / BAS103</p>
+</div>
+</div>
+<span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-bold">4 Credits</span>
+</div>
+
+<div id="mathUnits" class="space-y-6"></div>
+
+<div class="mt-6 flex justify-center">
+<button class="add-button" onclick="addUnit('mathUnits','Mathematics Unit')">
+<i class="fas fa-plus"></i>
+</button>
+</div>
+</div>
+
+<!-- ---------- FUNDAMENTALS OF ELECTRICAL ENGINEERING ---------- -->
+<div class="card-hover subject-card rounded-xl shadow-lg p-6">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center">
+<i class="fas fa-bolt text-4xl text-purple-600 mr-4"></i>
+<div>
+<h3 class="text-2xl font-bold text-gray-800">Fundamentals of Electrical Engineering</h3>
+<p class="text-sm text-gray-600">KEE101T / BEE101</p>
+</div>
+</div>
+<span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-bold">4 Credits</span>
+</div>
+
+<div id="electricalUnits" class="space-y-6"></div>
+
+<div class="mt-6 flex justify-center">
+<button class="add-button" onclick="addUnit('electricalUnits','Electrical Unit')">
+<i class="fas fa-plus"></i>
+</button>
+</div>
+</div>
+
+<!-- ---------- PROGRAMMING FOR PROBLEM SOLVING ---------- -->
+<div class="card-hover subject-card rounded-xl shadow-lg p-6">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center">
+<i class="fas fa-code text-4xl text-purple-600 mr-4"></i>
+<div>
+<h3 class="text-2xl font-bold text-gray-800">Programming for Problem Solving</h3>
+<p class="text-sm text-gray-600">KCS101T / BCS101</p>
+</div>
+</div>
+<span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-bold">4 Credits</span>
+</div>
+
+<div id="progUnits" class="space-y-6"></div>
+
+<div class="mt-6 flex justify-center">
+<button class="add-button" onclick="addUnit('progUnits','Programming Unit')">
+<i class="fas fa-plus"></i>
+</button>
+</div>
+</div>
+
+<!-- ---------- ENVIRONMENT AND ECOLOGY ---------- -->
+<div class="card-hover subject-card rounded-xl shadow-lg p-6">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center">
+<i class="fas fa-leaf text-4xl text-purple-600 mr-4"></i>
+<div>
+<h3 class="text-2xl font-bold text-gray-800">Environment and Ecology</h3>
+<p class="text-sm text-gray-600">KMC101 / BAS105</p>
+</div>
+</div>
+<span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-bold">2 Credits</span>
+</div>
+
+<div id="envUnits" class="space-y-6"></div>
+
+<div class="mt-6 flex justify-center">
+<button class="add-button" onclick="addUnit('envUnits','Environment Unit')">
+<i class="fas fa-plus"></i>
+</button>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ==================== LABS ==================== -->
+<section id="labs" class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
+Laboratory Courses
+</h2>
+<div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+
+<div class="card-hover lab-card rounded-xl shadow-lg p-6">
+<div class="flex items-center mb-4">
+<i class="fas fa-flask text-3xl text-blue-600 mr-3"></i>
+<div>
+<h3 class="text-xl font-bold">Engineering Physics Lab</h3>
+<p class="text-sm text-gray-600">KAS151P</p>
+</div>
+</div>
+<ul class="space-y-3">
+<li class="topic-item flex items-start p-3 rounded-lg bg-white/50" onclick="toggleComplete(this)">
+<input type="checkbox" class="mr-3 mt-1">
+<span class="text-sm"><strong>Group A:</strong> Newton's rings, Diffraction grating, Polarimeter, Lens combinations, Fiber optic attenuation, He‑Ne laser diffraction/polarization, Bi‑prism, Viscosity measurement, Pendulum (g determination)</span>
+</li>
+<li class="topic-item flex items-start p-3 rounded-lg bg-white/50" onclick="toggleComplete(this)">
+<input type="checkbox" class="mr-3 mt-1">
+<span class="text-sm"><strong>Group B:</strong> Band gap determination, Hall effect, Magnetic field measurement, Stefan's law, Carey Foster bridge, LCR resonance, ECE (copper), Ammeter/Voltmeter calibration, B‑H curve, High resistance measurement</span>
+</li>
+</ul>
+</div>
+
+<div class="card-hover lab-card rounded-xl shadow-lg p-6">
+<div class="flex items-center mb-4">
+<i class="fas fa-bolt text-3xl text-green-600 mr-3"></i>
+<div>
+<h3 class="text-xl font-bold">Basic Electrical Engineering Lab</h3>
+<p class="text-sm text-gray-600">KEE151P</p>
+</div>
+</div>
+<ul class="space-y-3">
+<li class="topic-item flex items-start p-3 rounded-lg bg-white/50" onclick="toggleComplete(this)">
+<input type="checkbox" class="mr-3 mt-1">
+<span class="text-sm">Kirchhoff's laws verification, Power factor improvement, RLC resonance analysis, Fluorescent lamp study, Three‑phase power measurement, RLC parameter determination, Transformer load test, DC shunt motor efficiency test, Three‑phase induction motor speed reversal, Cut‑out section demonstrations</span>
+</li>
+</ul>
+</div>
+
+<div class="card-hover lab-card rounded-xl shadow-lg p-6">
+<div class="flex items-center mb-4">
+<i class="fas fa-code text-3xl text-purple-600 mr-3"></i>
+<div>
+<h3 class="text-xl font-bold">Programming Lab</h3>
+<p class="text-sm text-gray-600">KCS151P</p>
+</div>
+</div>
+<ul class="space-y-3">
+<li class="topic-item flex items-start p-3 rounded-lg bg-white/50" onclick="toggleComplete(this)">
+<input type="checkbox" class="mr-3 mt-1">
+<span class="text-sm">Basic I/O, Arithmetic expressions, Conditional statements, Looping constructs, Array manipulations, String operations, Function implementation, Recursive functions, Pointer operations, File handling, Sorting algorithms (Bubble, Insertion, Selection), Searching algorithms (Linear, Binary)</span>
+</li>
+</ul>
+</div>
+
+<div class="card-hover lab-card rounded-xl shadow-lg p-6">
+<div class="flex items-center mb-4">
+<i class="fas fa-drafting-compass text-3xl text-orange-600 mr-3"></i>
+<div>
+<h3 class="text-xl font-bold">Engineering Graphics Lab</h3>
+<p class="text-sm text-gray-600">KCE151P</p>
+</div>
+</div>
+<ul class="space-y-3">
+<li class="topic-item flex items-start p-3 rounded-lg bg-white/50" onclick="toggleComplete(this)">
+<input type="checkbox" class="mr-3 mt-1">
+<span class="text-sm">Orthographic projections, Isometric views, Sectional views, CAD basics, Machine part drawings, Dimensioning techniques, Assembly drawings, Surface development</span>
+</li>
+</ul>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ==================== STUDY PLAN ==================== -->
+<section id="study-plan" class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
+10‑Day Intensive Study Plan
+</h2>
+
+<div class="max-w-6xl mx-auto">
+<div class="study-card rounded-xl shadow-lg p-8 mb-8">
+<div class="text-center mb-6">
+<span class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold">
+<i class="fas fa-clock mr-2"></i>STRUCTURED PREPARATION PLAN
+</span>
+</div>
+<h3 class="text-2xl font-bold mb-6 text-center text-gray-800">
+Day‑wise Breakdown (Oct 4‑13)
+</h3>
+
+<div class="grid md:grid-cols-2 gap-6">
+<div class="space-y-4">
+<div class="border-l-4 border-blue-500 pl-4 bg-white p-4 rounded-lg">
+<h4 class="font-bold text-blue-700 mb-2"><i class="fas fa-calendar-day mr-2"></i>Days 1‑2: Foundation Building</h4>
+<ul class="text-sm text-gray-700 space-y-1">
+<li>• <strong>Maths:</strong> Matrices & Basic Calculus (6 h)</li>
+<li>• <strong>Programming:</strong> Basics & Control Structures (4 h)</li>
+<li>• <strong>Physics:</strong> Quantum Mechanics (3 h)</li>
+<li>• <strong>Daily Practice:</strong> 20 numerical problems</li>
+</ul>
+</div>
+
+<div class="border-l-4 border-green-500 pl-4 bg-white p-4 rounded-lg">
+<h4 class="font-bold text-green-700 mb-2"><i class="fas fa-calendar-day mr-2"></i>Days 3‑4: Core Concepts</h4>
+<ul class="text-sm text-gray-700 space-y-1">
+<li>• <strong>Maths:</strong> Differential Calculus (6 h)</li>
+<li>• <strong>Programming:</strong> Arrays & Functions (4 h)</li>
+<li>• <strong>Electrical:</strong> DC & AC Circuits (4 h)</li>
+<li>• <strong>Daily Practice:</strong> 25 problems + 2 programs</li>
+</ul>
+</div>
+
+<div class="border-l-4 border-yellow-500 pl-4 bg-white p-4 rounded-lg">
+<h4 class="font-bold text-yellow-700 mb-2"><i class="fas fa-calendar-day mr-2"></i>Days 5‑6: Advanced Topics</h4>
+<ul class="text-sm text-gray-700 space-y-1">
+<li>• <strong>Maths:</strong> Integral & Vector Calculus (7 h)</li>
+<li>• <strong>Programming:</strong> Pointers & Files (4 h)</li>
+<li>• <strong>Physics:</strong> EM Theory & Optics (4 h)</li>
+<li>• <strong>Environment:</strong> Complete syllabus (3 h)</li>
+<li>• <strong>Daily Practice:</strong> 30 problems + 3 programs</li>
+</ul>
+</div>
+</div>
+
+<div class="space-y-4">
+<div class="border-l-4 border-red-500 pl-4 bg-white p-4 rounded-lg">
+<h4 class="font-bold text-red-700 mb-2"><i class="fas fa-calendar-day mr-2"></i>Days 7‑8: Lab Focus</h4>
+<ul class="text-sm text-gray-700 space-y-1">
+<li>• <strong>All Labs:</strong> Complete experiments (8 h)</li>
+<li>• <strong>Lab Records:</strong> Complete all records (3 h)</li>
+<li>• <strong>Viva Practice:</strong> Prepare for questions (2 h)</li>
+<li>• <strong>Revision:</strong> Weak topics review (3 h)</li>
+</ul>
+</div>
+
+<div class="border-l-4 border-purple-500 pl-4 bg-white p-4 rounded-lg">
+<h4 class="font-bold text-purple-700 mb-2"><i class="fas fa-calendar-day mr-2"></i>Days 9‑10: Final Revision</h4>
+<ul class="text-sm text-gray-700 space-y-1">
+<li>• <strong>Full Syllabus:</strong> Quick revision (10 h)</li>
+<li>• <strong>Previous Papers:</strong> Solve 5 years (4 h)</li>
+<li>• <strong>Mock Tests:</strong> Take 2‑3 tests (3 h)</li>
+<li>• <strong>Formula Review:</strong> All subjects (2 h)</li>
+<li>• <strong>Relaxation:</strong> Proper sleep & stress management</li>
+</ul>
+</div>
+
+<div class="bg-gradient-to-r from-blue-50 to-green-50 p-4 rounded-lg border-2 border-blue-200">
+<h4 class="font-bold text-blue-700 mb-2"><i class="fas fa-lightbulb mr-2"></i>Exam Day Strategy</h4>
+<ul class="text-sm text-gray-700 space-y-1">
+<li>• Wake up early, light breakfast</li>
+<li>• Revise formulas only (no new topics)</li>
+<li>• Reach centre 30 min early</li>
+<li>• Stay calm and confident</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div class="grid md:grid-cols-2 gap-6">
+<div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 shadow-lg">
+<h3 class="text-xl font-bold mb-4 text-blue-800"><i class="fas fa-clock mr-2"></i>Daily Schedule (10‑12 h)</h3>
+<div class="space-y-3 text-sm">
+<div class="flex justify-between items-center p-2 bg-white rounded">
+<span class="font-medium">5:00 AM‑6:00 AM</span><span class="text-gray-600">Wake up & Exercise</span>
+</div>
+<div class="flex justify-between items-center p-2 bg-white rounded">
+<span class="font-medium">6:00 AM‑8:00 AM</span><span class="text-gray-600">Theory Session 1 (Maths)</span>
+</div>
+<div class="flex justify-between items-center p-2 bg-white rounded">
+<span class="font-medium">8:00 AM‑8:30 AM</span><span class="text-gray-600">Breakfast</span>
+</div>
+<div class="flex justify-between items-center p-2 bg-white rounded">
+<span class="font-medium">8:30 AM‑11:30 AM</span><span class="text-gray-600">Theory Session 2 (Physics/Electrical)</span>
+</div>
+<div class="flex justify-between items-center p-2 bg-white rounded">
+<span class="font-medium">11:30 AM‑1:00 PM</span><span class="text-gray-600">Practice Problems</span>
+</div>
+<div class="flex justify-between items-center p-2 bg-white rounded">
+<span class="font-medium">1:00 PM‑2:00 PM</span><span class="text-gray-600">Lunch & Rest</span>
+</div>
+<div class="flex justify-between items-center p-2 bg-white rounded">
+<span class="font-medium">2:00 PM‑5:00 PM</span><span class="text-gray-600">Programming Practice</span>
+</div>
+<div class="flex justify-between items-center p-2 bg-white rounded">
+<span class="font-medium">5:00 PM‑6:00 PM</span><span class="text-gray-600">Break & Refresh</span>
+</div>
+<div class="flex justify-between items-center p-2 bg-white rounded">
+<span class="font-medium">6:00 PM‑8:00 PM</span><span class="text-gray-600">Lab Work / Environment</span>
+</div>
+<div class="flex justify-between items-center p-2 bg-white rounded">
+<span class="font-medium">8:00 PM‑9:00 PM</span><span class="text-gray-600">Dinner</span>
+</div>
+<div class="flex justify-between items-center p-2 bg-white rounded">
+<span class="font-medium">9:00 PM‑10:00 PM</span><span class="text-gray-600">Daily Revision</span>
+</div>
+<div class="flex justify-between items-center p-2 bg-white rounded">
+<span class="font-medium">10:30 PM</span><span class="text-gray-600">Sleep (7.5 h)</span>
+</div>
+</div>
+</div>
+
+<div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 shadow-lg">
+<h3 class="text-xl font-bold mb-4 text-green-800"><i class="fas fa-trophy mr-2"></i>9+ CGPA Strategy</h3>
+<ul class="space-y-3 text-sm">
+<li class="flex items-start p-3 bg-white rounded-lg"><i class="fas fa-check-circle text-green-500 mr-2 mt-0.5"></i>Practice 20‑30 problems daily per subject (Maths, Physics, Electrical)</li>
+<li class="flex items-start p-3 bg-white rounded-lg"><i class="fas fa-check-circle text-green-500 mr-2 mt-0.5"></i>Code 2‑3 programs daily (GeeksforGeeks/HackerRank)</li>
+<li class="flex items-start p-3 bg-white rounded-lg"><i class="fas fa-check-circle text-green-500 mr-2 mt-0.5"></i>Watch NPTEL videos for difficult concepts</li>
+<li class="flex items-start p-3 bg-white rounded-lg"><i class="fas fa-check-circle text-green-500 mr-2 mt-0.5"></i>Solve AKTU previous papers (last 5 years)</li>
+<li class="flex items-start p-3 bg-white rounded-lg"><i class="fas fa-check-circle text-green-500 mr-2 mt-0.5"></i>Complete lab records thoroughly</li>
+<li class="flex items-start p-3 bg-white rounded-lg"><i class="fas fa-check-circle text-green-500 mr-2 mt-0.5"></i>Focus on high‑weightage units (paper analysis)</li>
+<li class="flex items-start p-3 bg-white rounded-lg"><i class="fas fa-check-circle text-green-500 mr-2 mt-0.5"></i>Make formula sheets for quick revision</li>
+<li class="flex items-start p-3 bg-white rounded-lg"><i class="fas fa-check-circle text-green-500 mr-2 mt-0.5"></i>Take mock tests under exam conditions</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ==================== RESOURCES ==================== -->
+<section id="resources" class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
+Essential Study Resources
+</h2>
+<div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+<div class="resource-card rounded-xl shadow-lg p-6">
+<div class="flex items-center mb-4">
+<i class="fas fa-laptop text-3xl text-blue-600 mr-3"></i>
+<h3 class="text-xl font-bold">Online Resources</h3>
+</div>
+<ul class="space-y-3 text-sm">
+<li class="flex items-start"><i class="fas fa-link text-blue-500 mr-2 mt-1"></i><strong>NPTEL:</strong> <a href="https://nptel.ac.in/courses" target="_blank" class="text-blue-600 hover:underline">Complete video lectures</a></li>
+<li class="flex items-start"><i class="fas fa-link text-blue-500 mr-2 mt-1"></i><strong>GeeksforGeeks:</strong> <a href="https://www.geeksforgeeks.org/c-programming-language/" target="_blank" class="text-blue-600 hover:underline">Programming practice</a></li>
+<li class="flex items-start"><i class="fas fa-link text-blue-500 mr-2 mt-1"></i><strong>Khan Academy:</strong> <a href="https://www.khanacademy.org/math" target="_blank" class="text-blue-600 hover:underline">Math concepts</a></li>
+<li class="flex items-start"><i class="fas fa-link text-blue-500 mr-2 mt-1"></i><strong>YouTube:</strong> <a href="https://www.youtube.com/playlist?list=PL_R_O_h28-AzLhBUnlxIa0jMu6LjJg_7a" target="_blank" class="text-blue-600 hover:underline">Physics Wallah</a></li>
+<li class="flex items-start"><i class="fas fa-link text-blue-500 mr-2 mt-1"></i><strong>Unacademy:</strong> <a href="https://unacademy.com" target="_blank" class="text-blue-600 hover:underline">Engineering courses</a></li>
+<li class="flex items-start"><i class="fas fa-link text-blue-500 mr-2 mt-1"></i><strong>AKTU Website:</strong> <a href="https://aktu.ac.in/student" target="_blank" class="text-blue-600 hover:underline">Previous papers & syllabus</a></li>
+<li class="flex items-start"><i class="fas fa-link text-blue-500 mr-2 mt-1"></i><strong>MIT OCW:</strong> <a href="https://ocw.mit.edu" target="_blank" class="text-blue-600 hover:underline">Supplementary material</a></li>
+</ul>
+</div>
+
+<div class="resource-card rounded-xl shadow-lg p-6">
+<div class="flex items-center mb-4">
+<i class="fas fa-download text-3xl text-green-600 mr-3"></i>
+<h3 class="text-xl font-bold">Downloads</h3>
+</div>
+<ul class="space-y-3 text-sm">
+<li class="flex items-start"><i class="fas fa-file-pdf text-red-500 mr-2 mt-1"></i><strong>Official Syllabus:</strong> <a href="https://aktu.ac.in/pdf/syllabus/syllabus2223/Syllabus_BTech_First_Yr_Common_other_than_AG_&_BT_effective_from_2022_23_R.pdf" target="_blank" class="text-blue-600 hover:underline">PDF</a></li>
+<li class="flex items-start"><i class="fas fa-file-alt text-green-500 mr-2 mt-1"></i><strong>Previous Papers:</strong> <a href="https://aktu.ac.in/student/previous-year-question-papers" target="_blank" class="text-blue-600 hover:underline">2019‑2024</a></li>
+<li class="flex items-start"><i class="fas fa-flask text-purple-500 mr-2 mt-1"></i><strong>Lab Manuals:</strong> <a href="https://aktu.ac.in/student/lab-manuals" target="_blank" class="text-blue-600 hover:underline">Physics Lab</a></li>
+<li class="flex items-start"><i class="fas fa-calculator text-orange-500 mr-2 mt-1"></i><strong>Formula Sheets:</strong> <a href="https://www.geeksforgeeks.org/mathematics-formula-handbook/" target="_blank" class="text-blue-600 hover:underline">GfG</a></li>
+<li class="flex items-start"><i class="fas fa-sticky-note text-yellow-500 mr-2 mt-1"></i><strong>Notes:</strong> <a href="https://www.studocu.com/in/document/dr-apj-abdul-kalam-technical-university/engineering-physics/lecture-notes-all-units/1234567" target="_blank" class="text-blue-600 hover:underline">Handwritten notes</a></li>
+<li class="flex items-start"><i class="fas fa-question-circle text-blue-500 mr-2 mt-1"></i><strong>Question Banks:</strong> <a href="https://www.uptukhabar.com/aktu-question-banks" target="_blank" class="text-blue-600 hover:underline">Solutions</a></li>
+</ul>
+</div>
+
+<div class="resource-card rounded-xl shadow-lg p-6">
+<div class="flex items-center mb-4">
+<i class="fas fa-video text-3xl text-purple-600 mr-3"></i>
+<h3 class="text-xl font-bold">Video Playlists</h3>
+</div>
+<ul class="space-y-3 text-sm">
+<li class="flex items-start"><i class="fas fa-play-circle text-red-500 mr-2 mt-1"></i><strong>Physics Complete:</strong> <a href="https://www.youtube.com/playlist?list=PL_R_O_h28-AzLhBUnlxIa0jMu6LjJg_7a" target="_blank" class="text-blue-600 hover:underline">Engineering Physics</a></li>
+<li class="flex items-start"><i class="fas fa-play-circle text-red-500 mr-2 mt-1"></i><strong>Maths Complete:</strong> <a href="https://www.youtube.com/playlist?list=PL_R_O_h28-AzLhBUnlxIa0jMu6LjJg_7b" target="_blank" class="text-blue-600 hover:underline">Engineering Mathematics</a></li>
+<li class="flex items-start"><i class="fas fa-play-circle text-red-500 mr-2 mt-1"></i><strong>Electrical Complete:</strong> <a href="https://www.youtube.com/playlist?list=PL_R_O_h28-AzLhBUnlxIa0jMu6LjJg_7c" target="_blank" class="text-blue-600 hover:underline">Basic Electrical</a></li>
+<li class="flex items-start"><i class="fas fa-play-circle text-red-500 mr-2 mt-1"></i><strong>Programming Complete:</strong> <a href="https://www.youtube.com/playlist?list=PL_R_O_h28-AzLhBUnlxIa0jMu6LjJg_7d" target="_blank" class="text-blue-600 hover:underline">C Programming</a></li>
+<li class="flex items-start"><i class="fas fa-play-circle text-red-500 mr-2 mt-1"></i><strong>Environment Complete:</strong> <a href="https://www.youtube.com/playlist?list=PL_R_O_h28-AzLhBUnlxIa0jMu6LjJg_7e" target="_blank" class="text-blue-600 hover:underline">Environmental Studies</a></li>
+<li class="flex items-start"><i class="fas fa-play-circle text-red-500 mr-2 mt-1"></i><strong>Lab Demos:</strong> <a href="https://www.youtube.com/playlist?list=PL_R_O_h28-AzLhBUnlxIa0jMu6LjJg_7f" target="_blank" class="text-blue-600 hover:underline">All Lab Experiments</a></li>
+</ul>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ==================== PROGRESS TRACKER ==================== -->
+<section id="progress" class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
+Track Your Progress
+</h2>
+<div class="max-w-5xl mx-auto bg-white rounded-xl shadow-lg p-8">
+<div class="grid md:grid-cols-2 gap-8">
+<!-- Overall Progress -->
+<div>
+<h3 class="text-2xl font-semibold mb-6 text-gray-800"><i class="fas fa-chart-line mr-2 text-purple-600"></i>Overall Progress</h3>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between mb-2"><span class="text-sm font-medium">Syllabus Coverage</span><span class="text-sm font-bold" id="overallProgress">0%</span></div>
+<div class="w-full bg-gray-200 rounded-full h-4"><div id="overallProgressBar" class="bg-gradient-to-r from-purple-500 to-blue-500 h-4 rounded-full progress-bar" style="width:0%"></div></div>
+</div>
+<div>
+<div class="flex justify-between mb-2"><span class="text-sm font-medium">Practice Problems</span><span class="text-sm font-bold" id="problemsProgress">0/200</span></div>
+<div class="w-full bg-gray-200 rounded-full h-4"><div id="problemsProgressBar" class="bg-gradient-to-r from-green-500 to-teal-500 h-4 rounded-full progress-bar" style="width:0%"></div></div>
+</div>
+<div>
+<div class="flex justify-between mb-2"><span class="text-sm font-medium">Programs Completed</span><span class="text-sm font-bold" id="programsProgress">0/30</span></div>
+<div class="w-full bg-gray-200 rounded-full h-4"><div id="programsProgressBar" class="bg-gradient-to-r from-orange-500 to-red-500 h-4 rounded-full progress-bar" style="width:0%"></div></div>
+</div>
+<div>
+<div class="flex justify-between mb-2"><span class="text-sm font-medium">Mock Tests</span><span class="text-sm font-bold" id="mocksProgress">0/5</span></div>
+<div class="w-full bg-gray-200 rounded-full h-4"><div id="mocksProgressBar" class="bg-gradient-to-r from-indigo-500 to-purple-500 h-4 rounded-full progress-bar" style="width:0%"></div></div>
+</div>
+</div>
+</div>
+
+<!-- Daily Goals -->
+<div>
+<h3 class="text-2xl font-semibold mb-6 text-gray-800"><i class="fas fa-tasks mr-2 text-green-600"></i>Daily Goals</h3>
+<div class="space-y-3">
+<div class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition"><input type="checkbox" class="mr-3 w-5 h-5 text-purple-600" onchange="updateGoalProgress()"><span class="font-medium">Complete 5 theory topics</span></div>
+<div class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition"><input type="checkbox" class="mr-3 w-5 h-5 text-purple-600" onchange="updateGoalProgress()"><span class="font-medium">Solve 25 practice problems</span></div>
+<div class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition"><input type="checkbox" class="mr-3 w-5 h-5 text-purple-600" onchange="updateGoalProgress()"><span class="font-medium">Write 3 C programs</span></div>
+<div class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition"><input type="checkbox" class="mr-3 w-5 h-5 text-purple-600" onchange="updateGoalProgress()"><span class="font-medium">Complete 1 lab experiment</span></div>
+<div class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition"><input type="checkbox" class="mr-3 w-5 h-5 text-purple-600" onchange="updateGoalProgress()"><span class="font-medium">Revise yesterday's topics</span></div>
+<div class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition"><input type="checkbox" class="mr-3 w-5 h-5 text-purple-600" onchange="updateGoalProgress()"><span class="font-medium">Take 1 mock test</span></div>
+</div>
+<div class="mt-6 p-4 bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg border-2 border-purple-200 text-center">
+<p class="text-purple-800 font-bold"><i class="fas fa-fire mr-2"></i>Target: 9+ CGPA | Stay Consistent! 🔥</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ==================== FINAL MOTIVATION ==================== -->
+<section class="py-20 gradient-bg text-white">
+<div class="container mx-auto px-4 text-center">
+<div class="max-w-4xl mx-auto">
+<div class="mb-8"><i class="fas fa-trophy text-6xl text-yellow-400 mb-4"></i></div>
+<h2 class="text-4xl md:text-5xl font-bold mb-6">Excellence Awaits You! 🎯</h2>
+<p class="text-xl md:text-2xl mb-8 opacity-90">
+"The expert in anything was once a beginner. The next 10 days will define your semester but only this semester not everything so relax meri jaan and whenever you feel worry about this just remeber what I told you." <br> "Meri Jaan Stay focused, stay determined, and success will be yours!"
+</p>
+
+<div class="grid md:grid-cols-3 gap-6 mb-8">
+<div class="bg-white/10 backdrop-blur-sm rounded-lg p-6"><i class="fas fa-brain text-3xl mb-3"></i><h3 class="text-lg font-bold mb-2">Focus</h3><p class="text-sm opacity-90">One topic at a time, master it completely</p></div>
+<div class="bg-white/10 backdrop-blur-sm rounded-lg p-6"><i class="fas fa-clock text-3xl mb-3"></i><h3 class="text-lg font-bold mb-2">Discipline</h3><p class="text-sm opacity-90">Follow the schedule strictly, no excuses</p></div>
+<div class="bg-white/10 backdrop-blur-sm rounded-lg p-6"><i class="fas fa-chart-line text-3xl mb-3"></i><h3 class="text-lg font-bold mb-2">Progress</h3><p class="text-sm opacity-90">Track daily, celebrate small wins</p></div>
+</div>
+
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button onclick="showMotivationalQuote()" class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg font-bold hover:bg-yellow-300 transition transform hover:scale-105"><i class="fas fa-fire mr-2"></i></button>
+<button onclick="scrollToSection('subjects')" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-purple-600 transition transform hover:scale-105"><i class="fas fa-book mr-2"></i>Start Now</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ==================== EDIT CONTROLS ==================== -->
+<div class="edit-controls">
+<!-- Edit / Save button -->
+<button id="editBtn"
+class="edit-button bg-purple-600 text-white hover:bg-purple-700"
+onclick="toggleEditMode()">
+<i class="fas fa-edit text-xl"></i>
+</button>
+
+<!-- Discard button (hidden until edit mode) -->
+<button id="discardBtn"
+class="edit-button bg-red-600 text-white hover:bg-red-700 hidden"
+onclick="discardChanges()">
+<i class="fas fa-undo text-xl"></i>
+</button>
+</div>
+
+<!-- ==================== ACHIEVEMENT POPUP ==================== -->
+<div id="achievementPopup" class="achievement-popup">
+<div class="text-center">
+<i class="fas fa-trophy text-6xl text-yellow-400 mb-4"></i>
+<h2 class="text-2xl font-bold mb-2" id="achievementTitle">Achievement Unlocked! 🎉</h2>
+<p id="achievementText" class="text-gray-600 mb-4">You're making amazing progress!</p>
+<button onclick="closeAchievement()" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700">Continue</button>
+</div>
+</div>
+
+<!-- ==================== MOTIVATIONAL MODAL ==================== -->
+<div id="motivationModal"
+class="fixed inset-0 bg-black bg-opacity-60 z-50 hidden flex items-center justify-center">
+<div class="bg-white rounded-2xl p-8 max-w-lg mx-4 transform scale-95 transition-transform">
+<div class="text-center">
+<i class="fas fa-fire text-5xl text-orange-500 mb-4"></i>
+<h3 class="text-2xl font-bold mb-4 text-gray-800">Meri Dharampatni</h3>
+<p id="motivationalQuote"
+class="text-lg text-gray-600 mb-6 italic">
+"Success is the sum of small efforts repeated day in and day out!"
+</p>
+<button onclick="closeMotivation()"
+class="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:from-purple-700 hover:to-blue-700 transition">
+Let's Crush It! 🚀
+</button>
+</div>
+</div>
+</div>
+
+<!-- ==================== SCRIPT ==================== -->
+<script>
+/* -------------------------------------------------
+GLOBAL STATE & LOCAL STORAGE HANDLING
+------------------------------------------------- */
+let editMode = false;
+let originalSnapshot = null; // used for discard
+let studyStreak = 0;
+let lastStudyDate = null;
+let achievements = [];
+let sortableInstances = []; // Store sortable instances
+
+/* -------------------------------------------------
+COUNTDOWN TIMER
+------------------------------------------------- */
+function updateCountdown() {
+// exam date set to 13 Oct 2025 09:00
+const examDate = new Date('October 13, 2025 09:00:00');
+const now = new Date();
+const diff = examDate - now;
+
+if (diff > 0) {
+const d = Math.floor(diff / (1000*60*60*24));
+const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+const m = Math.floor((diff % (1000*60*60)) / (1000*60));
+const s = Math.floor((diff % (1000*60)) / 1000);
+
+document.getElementById('days').textContent = String(d).padStart(2,'0');
+document.getElementById('hours').textContent = String(h).padStart(2,'0');
+document.getElementById('minutes').textContent = String(m).padStart(2,'0');
+document.getElementById('seconds').textContent = String(s).padStart(2,'0');
+
+const urgency = document.getElementById('urgencyMessage');
+if (d <= 3) urgency.textContent = '🔥 Final push! Every minute counts!';
+else if (d <= 7) urgency.textContent = '💪 Intensive preparation time!';
+else urgency.textContent = '📚 Stay focused and consistent Jaan👑';
+
+document.title = `${d}D ${h}H ${m}M - AI&ML Exam Prep`;
+} else {
+document.getElementById('countdown').innerHTML = '<div class="text-3xl font-bold text-white">🎯 Exams Have Started! 🎯</div>';
+document.getElementById('urgencyMessage').textContent = 'All the best! You\'ve got this!';
+document.title = 'EXAMS STARTED - AI&ML Exam Prep';
+}
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+/* -------------------------------------------------
+MOBILE MENU
+------------------------------------------------- */
+document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+document.getElementById('mobileMenu').classList.toggle('hidden');
+});
+document.querySelectorAll('#mobileMenu a').forEach(a => {
+a.addEventListener('click', () => document.getElementById('mobileMenu').classList.add('hidden'));
+});
+
+/* -------------------------------------------------
+SMOOTH SCROLL
+------------------------------------------------- */
+function scrollToSection(id) {
+document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* -------------------------------------------------
+TOPIC COMPLETION TOGGLE
+------------------------------------------------- */
+function toggleComplete(el) {
+const cb = el.querySelector('input[type=checkbox]');
+cb.checked = !cb.checked;
+if (cb.checked) {
+el.classList.add('completed');
+el.style.transform = 'scale(1.02)';
+setTimeout(() => el.style.transform = 'scale(1)', 200);
+} else {
+el.classList.remove('completed');
+}
+updateOverallProgress();
+saveState();
+updateStudyStreak();
+}
+
+/* -------------------------------------------------
+PROGRESS CALCULATIONS
+------------------------------------------------- */
+function updateOverallProgress() {
+const total = document.querySelectorAll('.topic-item').length;
+const done = document.querySelectorAll('.topic-item input:checked').length;
+const pct = total ? Math.round(done/total*100) : 0;
+
+document.getElementById('overallProgress').textContent = pct+'%';
+document.getElementById('overallProgressBar').style.width = pct+'%';
+
+// problems (arbitrary 2 per topic)
+const probDone = Math.min(done*2, 200);
+document.getElementById('problemsProgress').textContent = probDone+'/200';
+document.getElementById('problemsProgressBar').style.width = (probDone/200*100)+'%';
+
+// programs (1 per 3 topics)
+const progDone = Math.min(Math.floor(done/3),30);
+document.getElementById('programsProgress').textContent = progDone+'/30';
+document.getElementById('programsProgressBar').style.width = (progDone/30*100)+'%';
+
+// mocks (1 per 20 topics)
+const mockDone = Math.min(Math.floor(done/20),5);
+document.getElementById('mocksProgress').textContent = mockDone+'/5';
+document.getElementById('mocksProgressBar').style.width = (mockDone/5*100)+'%';
+}
+
+/* -------------------------------------------------
+DAILY GOALS
+------------------------------------------------- */
+function updateGoalProgress() {
+const goals = document.querySelectorAll('#progress input[type=checkbox]');
+const completed = document.querySelectorAll('#progress input[type=checkbox]:checked').length;
+if (completed===goals.length && goals.length>0) showAchievement('Daily Champion! 🏆','All daily goals completed!');
+}
+
+/* -------------------------------------------------
+EDIT MODE TOGGLE & DISCARD
+------------------------------------------------- */
+function toggleEditMode() {
+editMode = !editMode;
+const editBtn = document.getElementById('editBtn');
+const discardBtn = document.getElementById('discardBtn');
+
+if (editMode) {
+// take snapshot before any change
+originalSnapshot = captureCurrentState();
+
+editBtn.innerHTML = '<i class="fas fa-save text-xl"></i>';
+editBtn.classList.add('bg-green-600');
+editBtn.classList.remove('bg-purple-600');
+
+discardBtn.classList.remove('hidden');
+
+// Add edit-mode class to body for CSS targeting
+document.body.classList.add('edit-mode');
+
+// Enable drag and drop
+enableDragAndDrop();
+
+// make headings editable
+document.querySelectorAll('.draggable h4').forEach(h => h.setAttribute('contenteditable','true'));
+
+// show notification
+showNotification('Edit mode enabled – you can now edit headings, units, topics, and add/remove items.');
+} else {
+editBtn.innerHTML = '<i class="fas fa-edit text-xl"></i>';
+editBtn.classList.remove('bg-green-600');
+editBtn.classList.add('bg-purple-600');
+
+discardBtn.classList.add('hidden');
+
+// Remove edit-mode class from body
+document.body.classList.remove('edit-mode');
+
+// Disable drag and drop
+disableDragAndDrop();
+
+// make headings non-editable
+document.querySelectorAll('.draggable h4').forEach(h => h.removeAttribute('contenteditable'));
+
+saveState();
+showNotification('Changes saved.');
+}
+}
+
+/* Capture the whole syllabus container as HTML string */
+function captureCurrentState() {
+return document.getElementById('subjects').innerHTML;
+}
+
+/* Restore from snapshot */
+function discardChanges() {
+if (originalSnapshot !== null) {
+document.getElementById('subjects').innerHTML = originalSnapshot;
+editMode = false;
+toggleEditMode(); // exit edit mode cleanly
+showNotification('All unsaved changes have been discarded.');
+}
+}
+
+/* -------------------------------------------------
+ENABLE/DISABLE DRAG AND DROP
+------------------------------------------------- */
+function enableDragAndDrop() {
+const containers = ['physicsUnits','mathUnits','electricalUnits','progUnits','envUnits'];
+containers.forEach(id => {
+const el = document.getElementById(id);
+if (el) {
+const sortable = Sortable.create(el, {
+animation:150,
+ghostClass:'sortable-ghost',
+handle: '.drag-handle'
+});
+sortableInstances.push(sortable);
+}
+});
+}
+
+function disableDragAndDrop() {
+// Destroy all sortable instances
+sortableInstances.forEach(sortable => {
+sortable.destroy();
+});
+sortableInstances = [];
+}
+
+/* -------------------------------------------------
+ADD / DELETE UNITS & TOPICS
+------------------------------------------------- */
+function addUnit(containerId, defaultTitle='New Unit') {
+if (!editMode) return;
+const container = document.getElementById(containerId);
+const unitId = containerId + '_unit_' + Date.now();
+
+const unit = document.createElement('div');
+unit.className = 'draggable glass-effect rounded-xl p-6 relative';
+unit.innerHTML = `
+<div class="drag-handle"><i class="fas fa-grip-lines"></i></div>
+<div class="delete-button" onclick="deleteUnit(this)"><i class="fas fa-trash"></i></div>
+<div class="add-button" onclick="addTopic(this)"><i class="fas fa-plus"></i></div>
+<h4 class="font-semibold mb-3 text-gray-700 flex items-center" contenteditable="true">${defaultTitle}</h4>
+<ul class="space-y-2"></ul>
+`;
+container.appendChild(unit);
+}
+
+/* Delete a whole unit */
+function deleteUnit(btn) {
+if (!editMode) return;
+const unit = btn.parentElement;
+unit.remove();
+}
+
+/* Add a new topic under a unit (called from the + button inside a unit) */
+function addTopic(btn) {
+if (!editMode) return;
+const unit = btn.closest('.draggable');
+const ul = unit.querySelector('ul');
+const li = document.createElement('li');
+li.className = 'topic-item flex items-start p-3 rounded-lg';
+li.innerHTML = `<input type="checkbox" class="mr-3 mt-1"><span class="text-sm" contenteditable="true">New topic</span>`;
+li.onclick = function(e){ if(e.target.tagName!=='INPUT') toggleComplete(this); };
+ul.appendChild(li);
+}
+
+/* -------------------------------------------------
+LOCAL STORAGE SAVE / LOAD
+------------------------------------------------- */
+function saveState() {
+const data = {
+html: document.getElementById('subjects').innerHTML,
+checklist: [...document.querySelectorAll('.topic-item input')].map(cb => cb.checked),
+streak: studyStreak,
+lastDate: lastStudyDate,
+achievements: achievements
+};
+localStorage.setItem('syllabusState', JSON.stringify(data));
+}
+
+function loadState() {
+const raw = localStorage.getItem('syllabusState');
+if (!raw) return;
+const data = JSON.parse(raw);
+document.getElementById('subjects').innerHTML = data.html;
+const checkboxes = document.querySelectorAll('.topic-item input');
+checkboxes.forEach((cb,i)=>{ cb.checked = data.checklist[i]; if(cb.checked) cb.closest('.topic-item').classList.add('completed'); });
+studyStreak = data.streak||0;
+lastStudyDate = data.lastDate||null;
+achievements = data.achievements||[];
+updateOverallProgress();
+}
+
+/* -------------------------------------------------
+ACHIEVEMENTS & CONFETTI
+------------------------------------------------- */
+function checkAchievements() {
+const total = document.querySelectorAll('.topic-item').length;
+const done = document.querySelectorAll('.topic-item input:checked').length;
+const pct = total ? Math.round(done/total*100) : 0;
+
+const map = {25:'quarter',50:'half',75:'threequarter',100:'complete'};
+if (map[pct] && !achievements.includes(map[pct])) {
+achievements.push(map[pct]);
+const msgs = {
+quarter:'25% Complete! 🎯',
+half:'Halfway there! 🚀',
+threequarter:'75% Mastered! 👑',
+complete:'Syllabus Mastered! 🏆'
+};
+showAchievement(msgs[map[pct]], 'Great job!');
+if (pct===100) createConfetti();
+}
+}
+
+function showAchievement(title, text) {
+document.getElementById('achievementTitle').textContent = title;
+document.getElementById('achievementText').textContent = text;
+const pop = document.getElementById('achievementPopup');
+pop.classList.add('show');
+setTimeout(()=>pop.classList.remove('show'),3000);
+}
+
+/* Simple confetti */
+function createConfetti() {
+const colors = ['#667eea','#764ba2','#f59e0b','#10b981','#ef4444'];
+for(let i=0;i<60;i++){
+const conf = document.createElement('div');
+conf.className='confetti';
+conf.style.left = Math.random()*100+'%';
+conf.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+conf.style.animationDelay = Math.random()*0.5+'s';
+document.body.appendChild(conf);
+setTimeout(()=>conf.remove(),3000);
+}
+}
+
+/* -------------------------------------------------
+MOTIVATIONAL QUOTE MODAL
+------------------------------------------------- */
+const quotes = [
+"Success is the sum of small efforts repeated day in and day out Jaan!",
+"The expert in anything was once a beginner. Keep going Bacha!",
+"Don't watch the clock; do what it does. Keep going!",
+"You are capable of amazing things. Trust yourself!",
+"Progress is progress, no matter how small. Celebrate it!",
+"Every accomplishment starts with the decision to try.",
+"Dream big, work hard, stay focused, and never give up!",
+"The harder the battle, the sweeter the victory!",
+"You got this! 9+ CGPA is within your reach!",
+"No matter what happen I'm with you, holding you closest. Always'",
+"Success is not final, failure is not fatal: it is the courage to continue that counts.",
+"The expert in anything was once a beginner.",
+"Your limitation—it's only your imagination.",
+"Great things never come from comfort zones.",
+"Dream it. Wish it. Do it.",
+"Exams are like opportunities, don't miss them.",
+"Your future depends on what you do today.",
+"The pain of discipline is always less than the pain of regret.",
+"Every expert was once a student. Every master was once a beginner.",
+"This too shall pass, and so will you!",
+"The beautiful thing about learning is that nobody can take it away from you.",
+"Education is the passport to the future, for tomorrow belongs to those who prepare for it today.",
+"A little progress each day adds up to big results.",
+"The more that you read, the more things you will know. The more that you learn, the more places you'll go.",
+"Learning never exhausts the mind.",
+"Time is what we want most, but what we use worst.",
+"The secret of getting ahead is getting started.",
+"Don't watch the clock; do what it does. Keep going.",
+"Your future is created by what you do today, not tomorrow.",
+"Discipline is the bridge between goals and accomplishment.",
+"The science of today is the technology of tomorrow.",
+"Engineering is not only study of 45 subjects but it is moral studies of intellectual life.",
+"The engineers of tomorrow will create the world of today.",
+"Innovation distinguishes between a leader and a follower.",
+"Code is like humor. When you have to explain it, it's bad.",
+"Believe you can and you're halfway there.",
+"You are braver than you believe, stronger than you seem, and smarter than you think.",
+"The only way to do great work is to love what you do.",
+"Success doesn't just find you. You have to go out and get it.",
+"The harder you work for something, the greater you'll feel when you achieve it.",
+];
+function showMotivationalQuote(){
+document.getElementById('motivationalQuote').textContent = quotes[Math.floor(Math.random()*quotes.length)];
+document.getElementById('motivationModal').classList.remove('hidden');
+}
+function closeMotivation(){ document.getElementById('motivationModal').classList.add('hidden'); }
+
+/* -------------------------------------------------
+NOTIFICATIONS
+------------------------------------------------- */
+function showNotification(msg){
+const note = document.createElement('div');
+note.className='fixed top-24 right-4 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg z-50';
+note.textContent = msg;
+document.body.appendChild(note);
+setTimeout(()=>{ note.style.transition='opacity .5s'; note.style.opacity='0'; setTimeout(()=>note.remove(),500); },2000);
+}
+
+/* -------------------------------------------------
+STUDY STREAK LOGIC
+------------------------------------------------- */
+function updateStudyStreak(){
+const today = new Date().toDateString();
+if (lastStudyDate !== today){
+const yesterday = new Date();
+yesterday.setDate(yesterday.getDate()-1);
+if (lastStudyDate === yesterday.toDateString()) studyStreak++;
+else studyStreak = 1;
+lastStudyDate = today;
+
+if (studyStreak===1) showAchievement('Study Started! 📚','Begin your journey');
+else if (studyStreak===3) showAchievement('3‑Day Streak! 🔥','Consistency is key');
+else if (studyStreak===7) showAchievement('Week Warrior! 💪','A full week of study');
+else if (studyStreak%7===0) showAchievement(`${studyStreak} Days! 🌟`,'Incredible dedication!');
+}
+}
+
+/* -------------------------------------------------
+INITIAL DATA POPULATION (default units/topics)
+------------------------------------------------- */
+function populateDefaults() {
+// Physics default units (as in the original file)
+const physicsData = [
+{title:'Unit 1: Quantum Mechanics', topics:[
+'Inadequacy of classical mechanics',
+"Planck's theory of black body radiation",
+'Compton effect',
+"de‑Broglie concept of matter waves",
+'Davisson and Germer Experiment',
+'Phase velocity and group velocity',
+"Time‑dependent and time‑independent Schrodinger wave equations",
+'Physical interpretation of wave function',
+'Particle in a one‑Dimensional box'
+]},
+{title:'Unit 2: Electromagnetic Field Theory', topics:[
+"Basic concept of Stoke's theorem and Divergence theorem",
+'Basic laws of electricity and magnetism',
+'Continuity equation for current density',
+'Displacement current',
+'Maxwell equations in integral and differential form',
+'Maxwell equations in vacuum and in conducting medium',
+'Poynting vector and Poynting theorem',
+'Plane electromagnetic waves in vacuum and their transverse nature',
+'Relation between electric and magnetic fields of an electromagnetic wave',
+'Plane electromagnetic waves in conducting medium',
+'Skin depth'
+]},
+{title:'Unit 3: Wave Optics', topics:[
+'Coherent sources',
+'Interference in uniform and wedge shaped thin films',
+'Necessity of extended sources',
+"Newton's Rings and its applications",
+'Introduction to diffraction',
+'Fraunhoffer diffraction at single slit and double slit',
+'Absent spectra',
+'Diffraction grating',
+'Spectra with grating',
+'Dispersive power',
+'Resolving power',
+"Rayleigh's criterion of resolution",
+'Resolving power of grating'
+]},
+{title:'Unit 4: Fiber Optics & Laser', topics:[
+'Principle and construction of optical fiber',
+'Acceptance angle',
+'Numerical aperture',
+'Acceptance cone',
+'Step index and graded index fibers',
+'Fiber optic communication principle',
+'Attenuation',
+'Dispersion',
+'Application of fiber',
+'Absorption of radiation',
+'Spontaneous and stimulated emission of radiation',
+'Population inversion',
+"Einstein's Coefficients",
+'Principles of laser action',
+'Solid state Laser (Ruby laser)',
+'Gas Laser (He‑Ne laser)',
+'Laser applications'
+]},
+{title:'Unit 5: Superconductors and Nano‑Materials', topics:[
+'Temperature dependence of resistivity in superconducting materials',
+'Meissner effect',
+'Temperature dependence of critical field',
+'Persistent current',
+'Type I and Type II superconductors',
+'High temperature superconductors',
+'Properties and Applications of Super‑conductors',
+'Introduction and properties of nano materials',
+'Basics concept of Quantum Dots',
+'Quantum wires and Quantum well',
+'Fabrication of nano materials -Top‑Down approach (CVD)',
+'Bottom‑Up approach (Sol Gel)',
+'Properties and Application of nano materials'
+]}
+];
+
+// Mathematics default units
+const mathData = [
+{title:'Unit 1: Matrices', topics:[
+'Elementary transformations',
+'Inverse of a matrix',
+'Rank of matrix',
+'Solution of system of linear equations',
+'Characteristic equation',
+'Cayley‑Hamilton Theorem and its application',
+'Linear Dependence and Independence of vectors',
+'Eigen values and Eigen vectors',
+'Complex Matrices',
+'Hermitian, Skew‑Hermitian and Unitary Matrices',
+'Applications to Engineering problems'
+]},
+{title:'Unit 2: Differential Calculus‑I', topics:[
+'Successive Differentiation (nth order derivatives)',
+'Leibnitz theorem',
+'Curve tracing',
+'Partial derivatives',
+"Euler's Theorem for homogeneous functions",
+'Total derivative',
+'Change of variables'
+]},
+{title:'Unit 3: Differential Calculus‑II', topics:[
+"Expansion of functions by Taylor's theorems for functions of one and two variables",
+"Maclaurin's theorems for functions of one and two variables",
+'Maxima and Minima of functions of several variables',
+"Lagrange's method of multipliers",
+'Jacobians',
+'Approximation of errors'
+]},
+{title:'Unit 4: Multiple Integration', topics:[
+'Double integral',
+'Triple integral',
+'Change of order of integration',
+'Change of variables',
+'Beta and Gamma function and their properties',
+"Dirichlet's integral and its applications to area and volume",
+"Liouville's extensions of Dirichlet's integral"
+]},
+{title:'Unit 5: Vector Calculus', topics:[
+'Vector differentiation - Gradient, Curl and Divergence and their Physical interpretation',
+'Directional derivatives',
+'Vector Integration - Line integral, Surface integral, Volume integral',
+"Gauss's Divergence theorem",
+"Green's theorem and Stoke's theorem (without proof)",
+'their applications'
+]}
+];
+
+// Electrical default units
+const electricalData = [
+{title:'Unit 1: DC Circuits', topics:[
+'Electrical circuit elements (R, L and C)',
+'Concept of active and passive elements',
+'voltage and current sources',
+'concept of linearity',
+'unilateral and bilateral elements',
+"Kirchhoff's laws",
+'Mesh and nodal methods of analysis'
+]},
+{title:'Unit 2: Steady State Analysis of Single Phase AC Circuits', topics:[
+'Representation of Sinusoidal waveforms – Average and effective values',
+'Form and peak factors',
+'Analysis of single phase AC Circuits consisting R‑L‑C combination (Series and Parallel)',
+'Apparent, active & reactive power',
+'Power factor',
+'Concept of Resonance in series & parallel circuits',
+'bandwidth and quality factor',
+'Three phase balanced circuits',
+'voltage and current relations in star and delta connections'
+]},
+{title:'Unit 3: Transformers', topics:[
+'Magnetic circuits',
+'ideal and practical transformer',
+'equivalent circuit',
+'losses in transformers',
+'regulation and efficiency'
+]},
+{title:'Unit 4: Electrical machines', topics:[
+'DC machines - Principle & Construction',
+'Types',
+'EMF equation of generator and torque equation of motor',
+'applications of DC motors (simple numerical problems)',
+'Three Phase Induction Motor - Principle & Construction',
+'Types',
+'Slip‑torque characteristics',
+'Applications (Numerical problems related to slip only)',
+'Single Phase Induction motor - Principle of operation and introduction to methods of starting',
+'applications',
+'Three Phase Synchronous Machines - Principle of operation of alternator and synchronous motor and their applications'
+]},
+{title:'Unit 5: Electrical Installations', topics:[
+'Introduction of Switch Fuse Unit (SFU)',
+'MCB',
+'ELCB',
+'MCCB',
+'ACB',
+'Types of Wires',
+'Cables and Bus‑bars',
+'Fundamentals of earthing and lightning protection',
+'Types of Batteries'
+]}
+];
+
+// Programming default units
+const progData = [
+{title:'Unit 1: Introduction to Components of a Computer System', topics:[
+'Memory, Processor, I/O Devices, Storage, Operating System',
+'Concept of Assembler, Compiler, Interpreter, Loader and Linker',
+'Idea of Algorithm - Representation of Algorithm, Flowchart, Pseudo code with Examples',
+'From Algorithms to Programs, Source Code',
+'Programming Basics - Structure of C Program, Writing and Executing the First C Program',
+'Syntax and Logical Errors in Compilation, Object and Executable Code',
+'Components of C Language, Standard I/O in C',
+'Fundamental Data types, Variables and Memory Locations, Storage Classes'
+]},
+{title:'Unit 2: Arithmetic Expressions and Precedence', topics:[
+'Operators and Expression Using Numeric and Relational Operators',
+'Mixed Operands, Type Conversion, Logical Operators',
+'Bit Operations, Assignment Operator, Operator precedence and Associatively',
+'Conditional Branching - Applying if and Switch Statements',
+'Nesting if and Else and Switch'
+]},
+{title:'Unit 3: Iteration and Loops', topics:[
+'Use of While, do While and for Loops, Multiple Loop Variables',
+'Use of Break, Goto and Continue Statements',
+'Arrays - Array Notation and Representation, Manipulating Array Elements',
+'using Multi Dimensional Arrays, Character Arrays and Strings',
+'Structure, union, Enumerated Data types, Array of Structures',
+'Passing Arrays to Functions'
+]},
+{title:'Unit 4: Functions', topics:[
+'Introduction, Types of Functions, Functions with Array',
+'Passing Parameters to Functions, Call by Value, Call by Reference',
+'Recursive Functions',
+'Basic of searching and Sorting Algorithms',
+'Searching & Sorting Algorithms (Linear Search, Binary search, Bubble Sort, Insertion and Selection Sort)'
+]},
+{title:'Unit 5: Pointers', topics:[
+'Introduction, Declaration, Applications',
+'Introduction to Dynamic Memory Allocation (Malloc, Calloc, Realloc, Free)',
+'String and String functions',
+'Use of Pointers in Self‑Referential Structures, Notion of Linked List (No Implementation)',
+'File Handling - File I/O Functions, Standard C Preprocessors',
+'Defining and Calling Macros and Command‑Line Arguments'
+]}
+];
+
+// Environment default units
+const envData = [
+{title:'Unit 1: Environment', topics:[
+'Definition, Types of Environment, Components of environment, Segments of environment',
+'Scope and importance, Need for Public Awareness',
+'Ecosystem - Definition, Types of ecosystem, Structure of ecosystem, Food Chain, Food Web, Ecological pyramid, Balance Ecosystem',
+'Effects of Human Activities such as Food, Shelter, Housing, Agriculture, Industry, Mining, Transportation, Economic and Social security on Environment',
+'Environmental Impact Assessment, Sustainable Development'
+]},
+{title:'Unit 2: Natural Resources', topics:[
+'Introduction, Classification',
+'Water Resources - Availability, sources and Quality Aspects, Water Borne and Water Induced Diseases, Fluoride and Arsenic Problems in Drinking Water',
+'Mineral Resources - Material Cycles: Carbon, Nitrogen and Sulfur cycles',
+'Energy Resources - Conventional and Non conventional Sources of Energy',
+'Forest Resources - Availability, Depletion of Forests, Environment impact of forest depletion on society'
+]},
+{title:'Unit 3: Pollution and their Effects', topics:[
+'Public Health Aspects of Environmental',
+'Water Pollution',
+'Air Pollution',
+'Soil Pollution',
+'Noise Pollution',
+'Solid waste management'
+]},
+{title:'Unit 4: Current Environmental Issues of Importance', topics:[
+'Global Warming, Green House Effects, Climate Change',
+'Acid Rain',
+'Ozone Layer Formation and Depletion',
+'Population Growth and Automobile pollution',
+'Burning of paddy straw'
+]},
+{title:'Unit 5: Environmental Protection', topics:[
+'Environmental Protection Act 1986',
+'Initiatives by Non Governmental Organizations (NGO\'s)',
+'Human Population and the Environment - Population growth, Environmental Education, Women Education'
+]}
+];
+
+// Helper to build units from data
+function buildUnits(containerId, data){
+const container = document.getElementById(containerId);
+data.forEach(unitObj=>{
+const unit = document.createElement('div');
+unit.className='draggable glass-effect rounded-xl p-6 relative';
+unit.innerHTML = `
+<div class="drag-handle"><i class="fas fa-grip-lines"></i></div>
+<div class="delete-button" onclick="deleteUnit(this)"><i class="fas fa-trash"></i></div>
+<div class="add-button" onclick="addTopic(this)"><i class="fas fa-plus"></i></div>
+<h4 class="font-semibold mb-3 text-gray-700 flex items-center">${unitObj.title}</h4>
+<ul class="space-y-2"></ul>`;
+const ul = unit.querySelector('ul');
+unitObj.topics.forEach(topic=>{
+const li = document.createElement('li');
+li.className='topic-item flex items-start p-3 rounded-lg';
+li.innerHTML = `<input type="checkbox" class="mr-3 mt-1"><span class="text-sm">${topic}</span>`;
+li.onclick = function(e){ if(e.target.tagName!=='INPUT') toggleComplete(this); };
+ul.appendChild(li);
+});
+container.appendChild(unit);
+});
+}
+
+// Populate all subjects
+buildUnits('physicsUnits', physicsData);
+buildUnits('mathUnits', mathData);
+buildUnits('electricalUnits', electricalData);
+buildUnits('progUnits', progData);
+buildUnits('envUnits', envData);
+}
+
+/* -------------------------------------------------
+INITIALISATION
+------------------------------------------------- */
+window.addEventListener('load', () => {
+// Load saved data if any
+if (localStorage.getItem('syllabusState')) loadState();
+else populateDefaults(); // otherwise load defaults
+
+// Animate cards on load
+document.querySelectorAll('.card-hover').forEach((c,i)=>{
+c.style.opacity='0';
+c.style.transform='translateY(30px)';
+setTimeout(()=>{c.style.opacity='1';c.style.transform='translateY(0)';}, i*150);
+});
+
+// Welcome toast
+setTimeout(()=>{
+const toast = document.createElement('div');
+toast.className='fixed top-24 left-1/2 transform -translate-x-1/2 bg-purple-600 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+toast.innerHTML = '<i class="fas fa-rocket mr-2"></i>Welcome back Bacha! Ready to ace your exam?';
+document.body.appendChild(toast);
+setTimeout(()=>{toast.style.transition='opacity .5s';toast.style.opacity='0';setTimeout(()=>toast.remove(),500);},3000);
+},1000);
+});
+
+/* Auto‑save every 30 seconds */
+setInterval(saveState, 30000);
+window.addEventListener('beforeunload', saveState);
+
+/* Keyboard shortcuts */
+document.addEventListener('keydown', e=>{
+if (e.key==='Escape'){
+closeMotivation();
+closeAchievement();
+if (editMode) toggleEditMode();
+}
+if (e.ctrlKey && e.key==='m'){ e.preventDefault(); showMotivationalQuote(); }
+if (e.ctrlKey && e.key==='e'){ e.preventDefault(); toggleEditMode(); }
+});
+</script>
+</body>
+</html>
