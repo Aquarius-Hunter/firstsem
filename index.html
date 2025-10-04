@@ -34,6 +34,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.css">
 .lab-card{background:linear-gradient(135deg,#f0f9ff 0%,#e0f2fe 100%)}
 .study-card{background:linear-gradient(135deg,#fef3c7 0%,#fde68a 100%)}
 .resource-card{background:linear-gradient(135deg,#f3e8ff 0%,#e9d5ff 100%)}
+.pyq-card{background:linear-gradient(135deg,#e0f7fa 0%,#b2ebf2 100%)}
 .edit-mode{border:2px dashed #667eea;background:#f9fafb}
 .editable{position:relative}
 .editable:hover{background:#f3f4f6;border-radius:4px}
@@ -545,7 +546,7 @@ Day‑wise Breakdown (Oct 4‑13)
 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
 Essential Study Resources
 </h2>
-<div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+<div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
 
 <div class="resource-card rounded-xl shadow-lg p-6">
 <div class="flex items-center mb-4">
@@ -578,21 +579,135 @@ Essential Study Resources
 </ul>
 </div>
 
-<div class="resource-card rounded-xl shadow-lg p-6">
-<div class="flex items-center mb-4">
-<i class="fas fa-video text-3xl text-purple-600 mr-3"></i>
-<h3 class="text-xl font-bold">Video Playlists</h3>
-</div>
-<ul class="space-y-3 text-sm">
-<li class="flex items-start"><i class="fas fa-play-circle text-red-500 mr-2 mt-1"></i><strong>Physics Complete:</strong> <a href="https://www.youtube.com/playlist?list=PL_R_O_h28-AzLhBUnlxIa0jMu6LjJg_7a" target="_blank" class="text-blue-600 hover:underline">Engineering Physics</a></li>
-<li class="flex items-start"><i class="fas fa-play-circle text-red-500 mr-2 mt-1"></i><strong>Maths Complete:</strong> <a href="https://www.youtube.com/playlist?list=PL_R_O_h28-AzLhBUnlxIa0jMu6LjJg_7b" target="_blank" class="text-blue-600 hover:underline">Engineering Mathematics</a></li>
-<li class="flex items-start"><i class="fas fa-play-circle text-red-500 mr-2 mt-1"></i><strong>Electrical Complete:</strong> <a href="https://www.youtube.com/playlist?list=PL_R_O_h28-AzLhBUnlxIa0jMu6LjJg_7c" target="_blank" class="text-blue-600 hover:underline">Basic Electrical</a></li>
-<li class="flex items-start"><i class="fas fa-play-circle text-red-500 mr-2 mt-1"></i><strong>Programming Complete:</strong> <a href="https://www.youtube.com/playlist?list=PL_R_O_h28-AzLhBUnlxIa0jMu6LjJg_7d" target="_blank" class="text-blue-600 hover:underline">C Programming</a></li>
-<li class="flex items-start"><i class="fas fa-play-circle text-red-500 mr-2 mt-1"></i><strong>Environment Complete:</strong> <a href="https://www.youtube.com/playlist?list=PL_R_O_h28-AzLhBUnlxIa0jMu6LjJg_7e" target="_blank" class="text-blue-600 hover:underline">Environmental Studies</a></li>
-<li class="flex items-start"><i class="fas fa-play-circle text-red-500 mr-2 mt-1"></i><strong>Lab Demos:</strong> <a href="https://www.youtube.com/playlist?list=PL_R_O_h28-AzLhBUnlxIa0jMu6LjJg_7f" target="_blank" class="text-blue-600 hover:underline">All Lab Experiments</a></li>
-</ul>
 </div>
 
+<!-- ==================== PREVIOUS YEAR QUESTION PAPERS ==================== -->
+<div class="mt-12">
+<h3 class="text-2xl font-bold text-center mb-8 text-gray-800">
+Previous Year Question Papers (2020-2024)
+</h3>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+<!-- Engineering Physics PYQs -->
+<div class="pyq-card rounded-xl shadow-lg p-6">
+<div class="flex items-center mb-4">
+<i class="fas fa-atom text-3xl text-purple-600 mr-3"></i>
+<h3 class="text-xl font-bold">Engineering Physics</h3>
+</div>
+<div class="space-y-2 text-sm">
+<p class="font-semibold text-gray-700">Previous Year Papers:</p>
+<ul class="space-y-1">
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-engineering-physics-bas101-mar-2024.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2024 (BAS101)</a></li>
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-engineering-physics-bas101-2023.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2023 (BAS101)</a></li>
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-engineering-physics-kas101t-2022.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2022 (KAS101T)</a></li>
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-engineering-physics-kas101t-2021.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2021 (KAS101T)</a></li>
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-physics-kas101-2020.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2020 (KAS101)</a></li>
+</ul>
+</div>
+</div>
+
+<!-- Engineering Mathematics PYQs -->
+<div class="pyq-card rounded-xl shadow-lg p-6">
+<div class="flex items-center mb-4">
+<i class="fas fa-calculator text-3xl text-purple-600 mr-3"></i>
+<h3 class="text-xl font-bold">Engineering Mathematics-I</h3>
+</div>
+<div class="space-y-2 text-sm">
+<p class="font-semibold text-gray-700">Previous Year Papers:</p>
+<ul class="space-y-1">
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-engineering-mathematics-1-bas103-mar-2024.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2024 (BAS103)</a></li>
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-engineering-mathematics-1-bas103-2023.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2023 (BAS103)</a></li>
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-engineering-mathematics-1-kas102t-2022.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2022 (KAS102T)</a></li>
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-engineering-mathematics-1-kas102t-2021.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2021 (KAS102T)</a></li>
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-mathematics-1-kas103-2020.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2020 (KAS103)</a></li>
+</ul>
+</div>
+</div>
+
+<!-- Electrical Engineering PYQs -->
+<div class="pyq-card rounded-xl shadow-lg p-6">
+<div class="flex items-center mb-4">
+<i class="fas fa-bolt text-3xl text-purple-600 mr-3"></i>
+<h3 class="text-xl font-bold">Fundamentals of Electrical Engineering</h3>
+</div>
+<div class="space-y-2 text-sm">
+<p class="font-semibold text-gray-700">Previous Year Papers:</p>
+<ul class="space-y-1">
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-fundamentals-of-electrical-engineering-bee101-mar-2024.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2024 (BEE101)</a></li>
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-fundamentals-of-electrical-engineering-bee101-2023.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2023 (BEE101)</a></li>
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-fundamentals-of-electrical-engineering-bee101-2022.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2022 (BEE101)</a></li>
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-fundamentals-of-electrical-engineering-bee101-2021.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2021 (BEE101)</a></li>
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-fundamentals-of-electrical-engineering-bee101-2020.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2020 (BEE101)</a></li>
+</ul>
+</div>
+</div>
+
+<!-- Programming PYQs -->
+<div class="pyq-card rounded-xl shadow-lg p-6">
+<div class="flex items-center mb-4">
+<i class="fas fa-code text-3xl text-purple-600 mr-3"></i>
+<h3 class="text-xl font-bold">Programming for Problem Solving</h3>
+</div>
+<div class="space-y-2 text-sm">
+<p class="font-semibold text-gray-700">Previous Year Papers:</p>
+<ul class="space-y-1">
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-programming-for-problem-solving-bcs101-mar-2024.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2024 (BCS101)</a></li>
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-programming-for-problem-solving-bcs101-2023.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2023 (BCS101)</a></li>
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-programming-for-problem-solving-kcs101-2022.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2022 (KCS101)</a></li>
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-programming-for-problem-solving-kcs101-2021.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2021 (KCS101)</a></li>
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-programming-for-problem-solving-kcs101-2020.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2020 (KCS101)</a></li>
+</ul>
+</div>
+</div>
+
+<!-- Environment PYQs -->
+<div class="pyq-card rounded-xl shadow-lg p-6">
+<div class="flex items-center mb-4">
+<i class="fas fa-leaf text-3xl text-purple-600 mr-3"></i>
+<h3 class="text-xl font-bold">Environment and Ecology</h3>
+</div>
+<div class="space-y-2 text-sm">
+<p class="font-semibold text-gray-700">Previous Year Papers:</p>
+<ul class="space-y-1">
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-environment-and-ecology-bas104-aug-2024.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2024 (BAS104)</a></li>
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-environment-and-ecology-bas104-2023.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2023 (BAS104)</a></li>
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-environment-and-ecology-kmc101-2022.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2022 (KMC101)</a></li>
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-environment-and-ecology-kmc101-2021.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2021 (KMC101)</a></li>
+<li><a href="https://www.aktuonline.com/papers/btech-1-sem-environment-and-ecology-kmc101-2020.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>2020 (KMC101)</a></li>
+</ul>
+</div>
+</div>
+
+<!-- Lab Resources -->
+<div class="pyq-card rounded-xl shadow-lg p-6">
+<div class="flex items-center mb-4">
+<i class="fas fa-flask text-3xl text-purple-600 mr-3"></i>
+<h3 class="text-xl font-bold">Lab Resources</h3>
+</div>
+<div class="space-y-2 text-sm">
+<p class="font-semibold text-gray-700">Viva Questions & Manuals:</p>
+<ul class="space-y-1">
+<li><a href="https://www.lastmomenttuitions.com/wp-content/uploads/2021/08/Engineering-Physics-Lab-Viva-Questions.pdf" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>Physics Lab Viva</a></li>
+<li><a href="https://www.studocu.com/in/document/dr-apj-abdul-kalam-technical-university/basic-electrical-engineering/btech-1-sem-electrical-lab-manual-2021/17172280" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>Electrical Lab Manual</a></li>
+<li><a href="https://www.studocu.com/in/document/dr-apj-abdul-kalam-technical-university/programming-for-problem-solving/programming-for-problem-solving-lab-manual/17172281" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>Programming Lab Manual</a></li>
+<li><a href="https://www.studocu.com/in/document/dr-apj-abdul-kalam-technical-university/engineering-graphics/engineering-graphics-lab-manual/17172282" target="_blank" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-file-pdf mr-2"></i>Graphics Lab Manual</a></li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<div class="mt-8 max-w-4xl mx-auto bg-blue-50 rounded-xl p-6 border-2 border-blue-200">
+<h3 class="text-xl font-bold mb-4 text-blue-800"><i class="fas fa-info-circle mr-2"></i>How to Use Previous Year Papers</h3>
+<ul class="space-y-2 text-sm text-gray-700">
+<li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mr-2 mt-0.5"></i>Solve at least 3 papers per subject under timed conditions to simulate exam environment</li>
+<li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mr-2 mt-0.5"></i>Focus on 2022-2024 papers as the syllabus was updated in 2022-23</li>
+<li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mr-2 mt-0.5"></i>Identify recurring question patterns and high-weightage topics</li>
+<li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mr-2 mt-0.5"></i>Practice numerical problems from Physics, Mathematics, and Electrical papers</li>
+<li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mr-2 mt-0.5"></i>Review coding questions from Programming papers and implement them</li>
+<li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mr-2 mt-0.5"></i>For labs, review viva questions and experiment procedures</li>
+</ul>
+</div>
 </div>
 </div>
 </section>
@@ -1460,4 +1575,4 @@ if (e.ctrlKey && e.key==='e'){ e.preventDefault(); toggleEditMode(); }
 });
 </script>
 </body>
-</html>
+    </html>
