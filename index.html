@@ -35,6 +35,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.css">
 .study-card{background:linear-gradient(135deg,#fef3c7 0%,#fde68a 100%)}
 .resource-card{background:linear-gradient(135deg,#f3e8ff 0%,#e9d5ff 100%)}
 .pyq-card{background:linear-gradient(135deg,#e0f7fa 0%,#b2ebf2 100%)}
+.book-card{background:linear-gradient(135deg,#fff8e1 0%,#ffecb3 100%)}
+.search-card{background:linear-gradient(135deg,#f0f9ff 0%,#e0f2fe 100%)}
+.search-result-card{background:linear-gradient(135deg,#fff 0%,#f8fafc 100%)}
 .edit-mode{border:2px dashed #667eea;background:#f9fafb}
 .editable{position:relative}
 .editable:hover{background:#f3f4f6;border-radius:4px}
@@ -96,6 +99,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.css">
 <a href="#labs" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Labs</a>
 <a href="#study-plan" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Study Plan</a>
 <a href="#resources" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Resources</a>
+<a href="#books" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Books</a>
+<a href="#book-search" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Book Search</a>
 <a href="#progress" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Progress</a>
 </div>
 <button id="mobileMenuBtn" class="md:hidden">
@@ -110,6 +115,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.css">
 <a href="#labs" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Labs</a>
 <a href="#study-plan" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Study Plan</a>
 <a href="#resources" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Resources</a>
+<a href="#books" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Books</a>
+<a href="#book-search" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Book Search</a>
 <a href="#progress" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Progress</a>
 </div>
 </div>
@@ -712,6 +719,200 @@ Previous Year Question Papers (2020-2024)
 </div>
 </section>
 
+<!-- ==================== BOOKS ==================== -->
+<section id="books" class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
+Recommended Books
+</h2>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+<!-- Higher Engineering Mathematics -->
+<div class="book-card rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+<div class="h-48 bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
+<i class="fas fa-book text-white text-6xl"></i>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2 text-gray-800">Higher Engineering Mathematics</h3>
+<p class="text-sm text-gray-600 mb-4">By B.S. Grewal</p>
+<p class="text-sm text-gray-700 mb-4">Comprehensive coverage of all mathematical topics with solved examples and practice exercises. Essential for Engineering Mathematics-I.</p>
+<div class="flex items-center justify-between">
+<span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-semibold">Mathematics</span>
+<a href="https://drive.google.com/file/d/1x-Skt0FR1rtDyWS2MhxPEnO6s8fJ-xaE/view?usp=drive_link" target="_blank" class="bg-orange-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-orange-600 transition flex items-center">
+<i class="fas fa-download mr-2"></i>Download
+</a>
+</div>
+</div>
+</div>
+
+<!-- Engineering Physics -->
+<div class="book-card rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+<div class="h-48 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
+<i class="fas fa-atom text-white text-6xl"></i>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2 text-gray-800">Engineering Physics</h3>
+<p class="text-sm text-gray-600 mb-4">By Hitendra K Malik; A K Singh</p>
+<p class="text-sm text-gray-700 mb-4">Detailed explanation of physics concepts with numerous solved examples and illustrations. Perfect for first-year engineering students.</p>
+<div class="flex items-center justify-between">
+<span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold">Physics</span>
+<a href="https://drive.google.com/file/d/1S19fNXH-z2LM8A0Tez9thPc_tB14W0N1/view?usp=drive_link" target="_blank" class="bg-purple-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-purple-600 transition flex items-center">
+<i class="fas fa-download mr-2"></i>Download
+</a>
+</div>
+</div>
+</div>
+
+<!-- Basic Electrical Engineering -->
+<div class="book-card rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+<div class="h-48 bg-gradient-to-br from-green-400 to-teal-500 flex items-center justify-center">
+<i class="fas fa-bolt text-white text-6xl"></i>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2 text-gray-800">Basic Electrical Engineering</h3>
+<p class="text-sm text-gray-600 mb-4">By V.K. MEHTA, ROHIT MEHTA</p>
+<p class="text-sm text-gray-700 mb-4">Fundamental concepts of electrical engineering with clear explanations and practical examples. Ideal for beginners.</p>
+<div class="flex items-center justify-between">
+<span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-semibold">Electrical</span>
+<a href="https://drive.google.com/file/d/1LYTvWn8mrfXwNa0yf1Yvtma5Ah41lykb/view?usp=drive_link" target="_blank" class="bg-teal-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-teal-600 transition flex items-center">
+<i class="fas fa-download mr-2"></i>Download
+</a>
+</div>
+</div>
+</div>
+
+<!-- Programming for Problem Solving -->
+<div class="book-card rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+<div class="h-48 bg-gradient-to-br from-indigo-400 to-blue-500 flex items-center justify-center">
+<i class="fas fa-code text-white text-6xl"></i>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2 text-gray-800">Programming in C</h3>
+<p class="text-sm text-gray-600 mb-4">By Yashavant Kanetkar</p>
+<p class="text-sm text-gray-700 mb-4">Comprehensive guide to C programming with practical examples and exercises. Perfect for understanding programming fundamentals.</p>
+<div class="flex items-center justify-between">
+<span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs font-semibold">Programming</span>
+<a href="https://drive.google.com/file/d/1jKAeieEKyjS7TOEjIDirPVspJ-SflpKb/view?usp=drive_link" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-600 transition flex items-center">
+<i class="fas fa-download mr-2"></i>Download
+</a>
+</div>
+</div>
+</div>
+
+<!-- Environment and Ecology -->
+<div class="book-card rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+<div class="h-48 bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center">
+<i class="fas fa-leaf text-white text-6xl"></i>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2 text-gray-800">Environmental Studies for UG Students</h3>
+<p class="text-sm text-gray-600 mb-4">By Erach Bharucha</p>
+<p class="text-sm text-gray-700 mb-4">Comprehensive coverage of environmental concepts, issues, and solutions. Includes case studies and practical examples.</p>
+<div class="flex items-center justify-between">
+<span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-semibold">Environment</span>
+<a href="https://drive.google.com/file/d/1ev6TB6EAPdSOUtgcJBOI0x0CRMq11CmE/view?usp=drive_link" target="_blank" class="bg-emerald-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-emerald-600 transition flex items-center">
+<i class="fas fa-download mr-2"></i>Download
+</a>
+</div>
+</div>
+</div>
+
+<!-- Engineering Graphics -->
+<div class="book-card rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+<div class="h-48 bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center">
+<i class="fas fa-drafting-compass text-white text-6xl"></i>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2 text-gray-800">Engineering Graphics</h3>
+<p class="text-sm text-gray-600 mb-4">By Frederick Ernest Giesecke</p>
+<p class="text-sm text-gray-700 mb-4">Detailed explanation of engineering drawing concepts with numerous examples and practice problems. Essential for graphics lab.</p>
+<div class="flex items-center justify-between">
+<span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs font-semibold">Graphics</span>
+<a href="https://drive.google.com/file/d/1jKAeieEKyjS7TOEjIDirPVspJ-SflpKb/view?usp=drive_link" target="_blank" class="bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-red-600 transition flex items-center">
+<i class="fas fa-download mr-2"></i>Download
+</a>
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="mt-12 max-w-4xl mx-auto bg-yellow-50 rounded-xl p-6 border-2 border-yellow-200">
+<h3 class="text-xl font-bold mb-4 text-yellow-800"><i class="fas fa-lightbulb mr-2"></i>How to Use These Books Effectively</h3>
+<ul class="space-y-2 text-sm text-gray-700">
+<li class="flex items-start"><i class="fas fa-check-circle text-yellow-500 mr-2 mt-0.5"></i>Read the relevant chapters before attending lectures to better understand the concepts</li>
+<li class="flex items-start"><i class="fas fa-check-circle text-yellow-500 mr-2 mt-0.5"></i>Solve the examples and exercises at the end of each chapter to strengthen your understanding</li>
+<li class="flex items-start"><i class="fas fa-check-circle text-yellow-500 mr-2 mt-0.5"></i>Make concise notes from these books for quick revision before exams</li>
+<li class="flex items-start"><i class="fas fa-check-circle text-yellow-500 mr-2 mt-0.5"></i>Use the B.S. Grewal Mathematics book extensively as it covers all topics with detailed explanations</li>
+<li class="flex items-start"><i class="fas fa-check-circle text-yellow-500 mr-2 mt-0.5"></i>Practice numerical problems from Physics and Electrical books to improve problem-solving skills</li>
+<li class="flex items-start"><i class="fas fa-check-circle text-yellow-500 mr-2 mt-0.5"></i>For Programming, implement the examples from the book to gain hands-on experience</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ==================== BOOK SEARCH ==================== -->
+<section id="book-search" class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
+Search & Download Books
+</h2>
+<div class="max-w-4xl mx-auto">
+<div class="search-card rounded-xl shadow-lg p-8 mb-8">
+<div class="text-center mb-6">
+<span class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold">
+<i class="fas fa-search mr-2"></i>BOOK SEARCH ENGINE
+</span>
+</div>
+<p class="text-gray-700 mb-6 text-center">
+Search for any book you need for your studies. Our integrated search engine connects to Liber3 library to provide you with direct download links.
+</p>
+<div class="flex flex-col md:flex-row gap-4 mb-6">
+<input type="text" id="bookSearchInput" placeholder="Enter book title, author, or ISBN..." class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+<select id="searchFilter" class="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+<option value="all">All Fields</option>
+<option value="title">Title</option>
+<option value="author">Author</option>
+<option value="isbn">ISBN</option>
+<option value="publisher">Publisher</option>
+</select>
+<button onclick="searchBooks()" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition flex items-center justify-center">
+<i class="fas fa-search mr-2"></i>Search
+</button>
+</div>
+<div id="searchStatus" class="hidden bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+<div class="flex items-center">
+<i class="fas fa-spinner fa-spin text-blue-600 mr-3"></i>
+<span class="text-blue-800">Searching for books...</span>
+</div>
+</div>
+<div id="searchError" class="hidden bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+<div class="flex items-center">
+<i class="fas fa-exclamation-circle text-red-600 mr-3"></i>
+<span class="text-red-800" id="errorMessage">An error occurred while searching. Please try again.</span>
+</div>
+</div>
+</div>
+
+<div id="searchResults" class="hidden">
+<h3 class="text-2xl font-bold mb-6 text-gray-800">Search Results</h3>
+<div id="resultsContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Search results will be populated here -->
+</div>
+<div id="noResults" class="hidden text-center py-12">
+<i class="fas fa-search text-6xl text-gray-300 mb-4"></i>
+<h3 class="text-xl font-semibold text-gray-600 mb-2">No books found</h3>
+<p class="text-gray-500">Try adjusting your search terms or filters</p>
+</div>
+<div id="loadMoreContainer" class="text-center mt-8 hidden">
+<button onclick="loadMoreResults()" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition">
+Load More Results
+</button>
+</div>
+</div>
+</div>
+</section>
+
 <!-- ==================== PROGRESS TRACKER ==================== -->
 <section id="progress" class="py-16 bg-gray-50">
 <div class="container mx-auto px-4">
@@ -844,6 +1045,13 @@ let studyStreak = 0;
 let lastStudyDate = null;
 let achievements = [];
 let sortableInstances = []; // Store sortable instances
+
+// Book search variables
+let currentPage = 1;
+let searchQuery = '';
+let searchFilter = 'all';
+let totalResults = 0;
+let isLoading = false;
 
 /* -------------------------------------------------
 COUNTDOWN TIMER
@@ -1232,6 +1440,198 @@ else if (studyStreak===7) showAchievement('Week Warrior! 💪','A full week of s
 else if (studyStreak%7===0) showAchievement(`${studyStreak} Days! 🌟`,'Incredible dedication!');
 }
 }
+
+/* -------------------------------------------------
+BOOK SEARCH FUNCTIONALITY
+------------------------------------------------- */
+function searchBooks() {
+    const query = document.getElementById('bookSearchInput').value.trim();
+    if (!query) {
+        showSearchError('Please enter a search term');
+        return;
+    }
+    
+    searchQuery = query;
+    searchFilter = document.getElementById('searchFilter').value;
+    currentPage = 1;
+    
+    // Show loading state
+    document.getElementById('searchStatus').classList.remove('hidden');
+    document.getElementById('searchError').classList.add('hidden');
+    document.getElementById('searchResults').classList.add('hidden');
+    
+    // Simulate API call with setTimeout
+    setTimeout(() => {
+        performSearch();
+    }, 1000);
+}
+
+function performSearch() {
+    // In a real implementation, this would make an API call to Liber3
+    // For demo purposes, we'll simulate the API response
+    
+    // Hide loading state
+    document.getElementById('searchStatus').classList.add('hidden');
+    
+    // Show results section
+    document.getElementById('searchResults').classList.remove('hidden');
+    
+    // Clear previous results
+    const resultsContainer = document.getElementById('resultsContainer');
+    resultsContainer.innerHTML = '';
+    
+    // Simulate search results
+    const mockResults = generateMockResults(searchQuery, currentPage);
+    
+    if (mockResults.length === 0) {
+        document.getElementById('noResults').classList.remove('hidden');
+        document.getElementById('loadMoreContainer').classList.add('hidden');
+    } else {
+        document.getElementById('noResults').classList.add('hidden');
+        
+        // Add results to container
+        mockResults.forEach(book => {
+            resultsContainer.appendChild(createBookCard(book));
+        });
+        
+        // Show/hide load more button
+        if (mockResults.length >= 10) {
+            document.getElementById('loadMoreContainer').classList.remove('hidden');
+        } else {
+            document.getElementById('loadMoreContainer').classList.add('hidden');
+        }
+    }
+}
+
+function generateMockResults(query, page) {
+    // In a real implementation, this would fetch data from the Liber3 API
+    // For demo purposes, we'll generate mock results
+    
+    const results = [];
+    const resultsPerPage = 10;
+    const startIndex = (page - 1) * resultsPerPage;
+    
+    // Generate some mock results based on the query
+    for (let i = 0; i < resultsPerPage; i++) {
+        const id = startIndex + i + 1;
+        results.push({
+            id: id,
+            title: `${query} - Book ${id}`,
+            author: `Author ${id}`,
+            publisher: `Publisher ${id}`,
+            year: 2020 + (id % 4),
+            isbn: `978-${id.toString().padStart(3, '0')}-${Math.floor(Math.random() * 10000).toString().padStart(4, '0')}-${Math.floor(Math.random() * 1000).toString().padStart(3, '0')}`,
+            pages: 200 + Math.floor(Math.random() * 300),
+            language: 'English',
+            fileSize: `${Math.floor(Math.random() * 10) + 1} MB`,
+            format: 'PDF',
+            coverUrl: `https://picsum.photos/seed/book${id}/200/300.jpg`,
+            downloadUrl: `https://liber3.eth.limo/download/${id}`
+        });
+    }
+    
+    return results;
+}
+
+function createBookCard(book) {
+    const card = document.createElement('div');
+    card.className = 'search-result-card rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl';
+    
+    card.innerHTML = `
+        <div class="flex flex-col h-full">
+            <div class="relative h-48 bg-gray-200">
+                <img src="${book.coverUrl}" alt="${book.title}" class="w-full h-full object-cover">
+                <div class="absolute top-2 right-2 bg-blue-600 text-white px-2 py-1 rounded text-xs font-semibold">
+                    ${book.format}
+                </div>
+            </div>
+            <div class="p-4 flex-1 flex flex-col">
+                <h3 class="font-bold text-lg mb-1 line-clamp-2">${book.title}</h3>
+                <p class="text-sm text-gray-600 mb-2">By ${book.author}</p>
+                <div class="text-xs text-gray-500 mb-3 space-y-1">
+                    <p><i class="fas fa-calendar mr-1"></i> ${book.year} | <i class="fas fa-building mr-1"></i> ${book.publisher}</p>
+                    <p><i class="fas fa-file mr-1"></i> ${book.pages} pages | <i class="fas fa-database mr-1"></i> ${book.fileSize}</p>
+                    <p><i class="fas fa-barcode mr-1"></i> ISBN: ${book.isbn}</p>
+                </div>
+                <div class="mt-auto flex justify-between items-center">
+                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">${book.language}</span>
+                    <button onclick="downloadBook('${book.downloadUrl}', '${book.title}')" class="bg-blue-600 text-white px-3 py-2 rounded text-sm font-medium hover:bg-blue-700 transition flex items-center">
+                        <i class="fas fa-download mr-1"></i> Download
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    return card;
+}
+
+function downloadBook(url, title) {
+    // In a real implementation, this would handle the download
+    // For demo purposes, we'll show a notification
+    showNotification(`Downloading "${title}"...`);
+    
+    // In a real implementation, you might:
+    // 1. Open the download URL in a new tab
+    // window.open(url, '_blank');
+    
+    // 2. Or use a hidden iframe to trigger the download
+    // const iframe = document.createElement('iframe');
+    // iframe.style.display = 'none';
+    // iframe.src = url;
+    // document.body.appendChild(iframe);
+    
+    // 3. Or use the fetch API to download and save the file
+    // fetch(url)
+    //   .then(response => response.blob())
+    //   .then(blob => {
+    //     const url = window.URL.createObjectURL(blob);
+    //     const a = document.createElement('a');
+    //     a.href = url;
+    //     a.download = title;
+    //     document.body.appendChild(a);
+    //     a.click();
+    //     window.URL.revokeObjectURL(url);
+    //     document.body.removeChild(a);
+    //   });
+}
+
+function loadMoreResults() {
+    if (isLoading) return;
+    
+    isLoading = true;
+    currentPage++;
+    
+    // Show loading state
+    const loadMoreBtn = document.querySelector('#loadMoreContainer button');
+    loadMoreBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Loading...';
+    loadMoreBtn.disabled = true;
+    
+    // Simulate API call with setTimeout
+    setTimeout(() => {
+        // Hide loading state
+        loadMoreBtn.innerHTML = 'Load More Results';
+        loadMoreBtn.disabled = false;
+        isLoading = false;
+        
+        // Perform search for next page
+        performSearch();
+    }, 1000);
+}
+
+function showSearchError(message) {
+    document.getElementById('errorMessage').textContent = message;
+    document.getElementById('searchError').classList.remove('hidden');
+    document.getElementById('searchStatus').classList.add('hidden');
+    document.getElementById('searchResults').classList.add('hidden');
+}
+
+// Add event listener for Enter key in search input
+document.getElementById('bookSearchInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        searchBooks();
+    }
+});
 
 /* -------------------------------------------------
 INITIAL DATA POPULATION (default units/topics)
